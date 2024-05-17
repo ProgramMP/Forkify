@@ -1,6 +1,10 @@
 import { mark } from 'regenerator-runtime';
 import icons from 'url:../../img/icons.svg';
 
+const newFeacher = function () {
+  console.log(`weloome`);
+};
+
 export default class View {
   _data;
 
