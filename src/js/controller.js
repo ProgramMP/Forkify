@@ -11,6 +11,8 @@ import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 import { async } from 'regenerator-runtime';
 
+const searchBar = document.querySelector(`.search`);
+
 if (module.hot) {
   module.hot.accept();
 }
@@ -41,11 +43,10 @@ const controlRecipes = async function () {
 
 const controlSearchResults = async function () {
   try {
-    resultsView.renderSpinner();
     //1? Get search query
     const query = searchView.getQuery();
     if (!query) return;
-
+    resultsView.renderSpinner();
     //2) Load search results
     await model.loadSearchResults(query);
 
