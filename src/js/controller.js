@@ -11,8 +11,6 @@ import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 import { async } from 'regenerator-runtime';
 
-const searchBar = document.querySelector(`.search`);
-
 if (module.hot) {
   module.hot.accept();
 }
@@ -26,6 +24,7 @@ const controlRecipes = async function () {
 
     // 0) Update results view to mark selected search result
     resultsView.update(model.getSearchResultsPage());
+
     // 1) Updating bookmarks view
     bookmarksView.update(model.state.bookmarks);
 
@@ -74,7 +73,6 @@ const controlServings = function (newServings) {
   model.updateServings(newServings);
 
   // Unpade the recipe view
-  // recipeView.render(model.state.recipe);
   recipeView.update(model.state.recipe);
 };
 
